@@ -6,7 +6,7 @@ summarizer:
     temperature: 0.8
 
 search: 
-  max_results: 10
+  max_results: 5
   search_depth: basic                     # [basic, advanced] for relevant search.
   include_answer: True                    # Include a list of query related images in the response
   include_images: False                   # Include a short answer to original query in the search results
