@@ -1,7 +1,6 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
-class NewsTopic(BaseModel): 
-    id: int
+class Article(BaseModel): 
     title: str
     summary: str
     url: str
