@@ -1,13 +1,13 @@
-tools: 
-  scraper:
-  
-    llm: 
-      api_key: None
-      temperature: 0.8
+ 
+summarizer:
+  provider: gemini
+  llm: 
+    model: models/gemini-1.5-flash
+    temperature: 0.8
 
-  search: 
-    max_results: 10
-    search_depth: basic                     # [basic, advanced] for relevant search.
-    include_answer: True                    # Include a list of query related images in the response
-    include_images: False                   # Include a short answer to original query in the search results
-    include_raw_content: False              # Include cleaned and parsed HTML of each site search results
+search: 
+  max_results: 10
+  search_depth: basic                     # [basic, advanced] for relevant search.
+  include_answer: True                    # Include a list of query related images in the response
+  include_images: False                   # Include a short answer to original query in the search results
+  include_raw_content: False              # Include cleaned and parsed HTML of each site search results

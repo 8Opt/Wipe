@@ -2,28 +2,28 @@ from tavily import TavilyClient
 
 from wipe.tools.base import Node
 
-class TavilyWorker(Node):
-    def __init__(self, api_key:str,name="Tavily"):
-        super().__init__(name=name,api_key=api_key)
-        self.engine = TavilyClient(api_key=api_key)
+class TavilySearcher(Node):
+    def __init__(self, config, name="Tavily"):
+        super().__init__(name=name)
+        self.config = config
+        self.engine = TavilyClient()
 
-    def run(self, input, search_type:str='basic', **kwargs): 
+    def run(self, input, search_type:str='basic'): 
         
         try: 
-            if search_type == "basic": 
-                result = self.engine.search(query=input, 
-                                            **kwargs)
-            elif search_type == "context": 
-                result = self.engine.get_search_context(query=input, 
-                                            **kwargs)
-            elif search_type == "qna": 
-                result = self.engine.qna_search(query=input, 
-                                            **kwargs)
-            else: 
-                supported_search = self._get_engine()
-                supported_search = supported_search.keys()
-                raise f"Input search_stype is not valid, please refer to {supported_search}"
-            return result
+            match search_type:
+                case "basic": 
+                    result = self.engine.search(query=input, 
+                                                **self.config)
+                    return result
+                case "context": 
+                    result = self.engine.get_search_context(query=input, 
+                                                **self.config)
+                    return result
+                case "qna": 
+                    result = self.engine.qna_search(query=input, 
+                                                **self.config)
+                    return result
         except: 
             return None
     

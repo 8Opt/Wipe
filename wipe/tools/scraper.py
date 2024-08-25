@@ -1,25 +1,21 @@
+from typing import List, Union
+
+
 from langchain_community.document_loaders import WebBaseLoader
 
+
 from wipe.tools.base import Node
-from wipe.llms import GenModel
+
 
 class SmartScraper(Node): 
 
-    def __init__(self, api_key, **kwargs):
-        super().__init__(api_key, name="SmartScraper",  **kwargs)
-        if "llm_config" in kwargs: 
-            self.llm_config = kwargs['llm_config']
+    def __init__(self, **kwargs):
+        super().__init__(name="SmartScraper",  **kwargs)
 
     def run(self, input, **kwargs):
-        return super().run(input, **kwargs)
-    
+        results = self.__get_web_loader(url=input)
+        return results
 
-    def __set_gen_model(self, provider, api_key): 
-        try: 
-            self.llm_config['api_key'] = api_key
-            gen_model = GenModel.from_pretrained(provider=provider, 
-                                                 config=self.llm_config)
-            return gen_model
-        
-        except: 
-            
+    def __get_web_loader(self, url: Union[str, List[str]]): 
+        loader = WebBaseLoader(url)
+        return loader
