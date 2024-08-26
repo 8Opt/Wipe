@@ -1,0 +1,20 @@
+!1.0.0
+meta:
+  id: custom-spu-5001
+  revision: 2
+key: custom-spu-5001
+status:
+  resolution: Offline
+spec:
+  spuId: 5001
+  spuType: Custom
+  publicEndpoint:
+    port: 9110
+    ingress:
+    - hostname: 0.0.0.0
+      ip: null
+    encryption: PLAINTEXT
+  privateEndpoint:
+    port: 9011
+    host: spu
+    encryption: PLAINTEXT

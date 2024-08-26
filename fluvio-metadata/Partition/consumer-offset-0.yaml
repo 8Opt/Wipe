@@ -1,0 +1,32 @@
+!1.0.0
+meta:
+  id: consumer-offset-0
+  revision: 2
+  parent:
+    id: consumer-offset
+    revision: 2
+key: consumer-offset-0
+status:
+  resolution: LeaderOffline
+  leader:
+    spu: 5001
+    hw: 0
+    leo: 0
+  lsr: 0
+  replicas: []
+  size: 0
+  isBeingDeleted: false
+  baseOffset: 0
+spec:
+  leader: 5001
+  replicas:
+  - 5001
+  cleanupPolicy: !segment
+    timeInSeconds: 604800
+  storage:
+    segmentSize: 512000000
+    maxPartitionSize: 2048000000
+  compressionType: Any
+  deduplication: null
+  system: true
+  mirror: null

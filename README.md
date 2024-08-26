@@ -10,27 +10,47 @@
 ## Features
 
 - [] Update latest information related to AI. 
-- [] Update latest advancements in AI field via `paperwithcode`'s API. 
 - [] Summarize article with Large Language Models.
-
-
-## Tech Stack
 
 
 ## Code in Action
 
 
-1. Setup environment
+1. Clone the repository
+
+```
+git clone https://github.com/MinLee0210/Wipe
+cd Wipe
+```
+
+2. Setup environment
+
+Create an `.env` file in the root directory following this format
+
+```
+TAVILY_API_KEY = ""
+GEMINI_API_KEY=""
+GROQ_API_KEY=""
+OPENAI_API_KEY="
+```
+
+_Note:_ `TAVILY_API_KEY` is a must for the API of search engine. You can switch between Gemini, Groq, and OpenAI. 
+
+
+3. Usage
+
+**Build and start Docker Image**
+```
+docker-compose up --build
+```
+
+
+**Running the server**
 
 
 
-2. Usage
+## Contact me via
 
-**API-based**
-
-
-
-**Fluvio demonstration**
-
-
-
++ **Github:** https://github.com/MinLee0210
++ **Gmail:** minh.leduc.0210@gmail.com
++ **LinkedIn:** www.linkedin.com/in/minhle007

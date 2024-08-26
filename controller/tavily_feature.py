@@ -49,10 +49,8 @@ def get_latest_trend()->list[Article]:
 
         summary = llm.invoke(summary_prompt).content
 
-        article = Article(title=metadata['title'], 
-                          abstract=metadata['description'], 
-                          summary=summary, 
-                          url=metadata['source'])
+        article = Article(summary=summary, 
+                          **metadata)
         
         articles.append(article)
         

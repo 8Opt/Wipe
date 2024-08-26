@@ -1,10 +1,17 @@
 from pydantic import BaseModel
 
+
+class Notify(BaseModel): 
+    id: int
+    title: int
+    article_id: int
+
 class Article(BaseModel): 
+    id: int
     title: str
-    abstract: str
+    description: str
+    source: str
     summary: str
-    url: str
 
     def display(self): 
-        return f"""Title: {self.title} \nAbstract: {self.abstract} \nSummary: {self.summary} \nSource: {self.url}"""
+        return f"""Title: {self.title} \nAbstract: {self.description} \nSummary: {self.summary} \nSource: {self.source}"""
