@@ -29,7 +29,7 @@ class WIPEConsumer:
         Consumes a specified number of records from the topic.
     """
 
-    role = 'customer'
+    ROLE = 'customer'
 
     def __init__(self, topic_name: str, partition: int):
         """
@@ -45,7 +45,8 @@ class WIPEConsumer:
         self.topic_name = topic_name
         self.partition = partition
         self.consumer = Fluvio.connect().partition_consumer(topic_name, partition)
-
+        self.notification = []
+        
     def consume_records(self, num_records: int) -> None:
         """
         Consumes a specified number of records from the topic.
@@ -58,7 +59,14 @@ class WIPEConsumer:
         try:
             for idx, record in enumerate(self.consumer.stream(Offset.from_end(num_records))):
                 print(f"Record {idx+1}: {record.value_string()}: timestamp: {datetime.now()}")
+                self.notification.append(record.value_string())
                 if idx >= num_records - 1:
                     break
         except Exception as e:
             print(f"Error consuming records: {e}")
+
+    def flush(self): 
+        """
+        Delete notification
+        """
+        self.notification = []

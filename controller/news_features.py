@@ -23,7 +23,7 @@ ROOT = Path(os.path.relpath(ROOT, Path.cwd()))
 
 # Import necessary modules
 from controller.setup_env import setup_api_key, get_config
-from wipe.llms import GenModel
+from wipe.llms import GenModel, SambaNova
 from wipe.pre_processing import clean
 from wipe.prompts import SUMMARY_ARTICLE
 from wipe.tools import SmartScraper, TavilySearcher
@@ -36,6 +36,7 @@ config = get_config()
 # Initialize tools
 scraper = SmartScraper()
 searcher = TavilySearcher(config=config["search"])
+
 llm = GenModel.from_pretrained(
     provider=config["summarizer"]["provider"], config=config["summarizer"]["llm"]
 )
@@ -59,7 +60,7 @@ def get_latest_trend() -> tuple[list[Article], list[Event]]:
         try:
             docs.append(scraper.run(url))
         except ValueError:
-            pass  # Skip unsupported URLs
+            continue  # Skip unsupported URLs
 
 
     # Process and summarize articles
@@ -69,7 +70,7 @@ def get_latest_trend() -> tuple[list[Article], list[Event]]:
         content = clean(doc[0].page_content)
 
         summary_prompt = SUMMARY_ARTICLE.format(article=content)
-        summary = llm.invoke(summary_prompt).content
+        summary = llm.invoke(summary_prompt).content  
 
         # Create Article object with metadata and summary
         article = Article(summary=summary, **metadata)
@@ -77,6 +78,7 @@ def get_latest_trend() -> tuple[list[Article], list[Event]]:
         # Create Event object with Article's information
         event_title = f"Latest Trend in AI (2024) - {article.title}"  # Modify title creation if needed
         event = Event(title=event_title, 
-                      article_id=article.id)
+                    article_id=article.id)
         events.append(event)
+
     return (articles, events)

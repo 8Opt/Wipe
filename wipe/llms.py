@@ -5,7 +5,6 @@ class Provider:
   OLLAMA = "ollama"
   GROQ = "groq"
   OPENAI = "openai"
-  SAMBANOVA = "sambanova"  # Add Sambanova as a provider
 
 class GenModel:
 
@@ -14,7 +13,6 @@ class GenModel:
       Provider.OLLAMA: "langchain_community.chat_models.ChatOllama",
       Provider.GROQ: "langchain_groq.ChatGroq",
       Provider.OPENAI: "langchain_openai.ChatOpenAI",
-      Provider.SAMBANOVA: "SambaNova",  # Map to SambaNova class
   }
 
   @staticmethod

@@ -1,6 +1,7 @@
 """
 A simple Fluvio producer that produces records to a topic.
 """
+import subprocess
 
 from fluvio import Fluvio
 
@@ -43,12 +44,12 @@ class WipeProducer:
         
     def produce_records(self, event: str) -> None:
         """
-        Produces a specified number of records to the topic.
+        Produces a specified event.
         
         Parameters:
         ----------
-        num_records : int
-            The number of records to produce.
+        event : str
+            The information of the event
         """
         try:
                 self.producer.send_string(event)
@@ -65,3 +66,18 @@ class WipeProducer:
             print("Producer flushed successfully")
         except Exception as e:
             print(f"Error flushing producer: {e}")
+
+    def __create_topic(self, topic_name:str):
+        """
+        Create a topic. 
+
+        Parameters: 
+        ----------
+        topic_name: str
+            The name of the topic
+        """
+        try:
+            shell_cmd = ['fluvio', 'topic', 'create', topic_name]
+            subprocess.run(shell_cmd, check=True)
+        except subprocess.CalledProcessError as e:
+            print(f'Command {e.cmd} failed with error {e.returncode}')

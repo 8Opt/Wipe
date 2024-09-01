@@ -21,14 +21,16 @@
 - Summarize article with Large Language Models.
 
 
-## Code in Action
+## Getting Started
 
+It is noteworthy that the app is heavily depend on using Docker. Therefore, to run the app, Docker should be on your machine.
 
 1. Clone the repository
 
 ```
 git clone https://github.com/MinLee0210/Wipe.git
-cd Wipe
+cd ./Wipe
+pip install -r requirements.txt
 ```
 
 2. Setup environment
@@ -42,6 +44,8 @@ GROQ_API_KEY=""
 OPENAI_API_KEY="
 ```
 
+Additionally, you have to setup the Redis database. 
+
 _Note:_ `TAVILY_API_KEY` is a must for the API of search engine. Choice of LLM's API depends on your usage. You can switch between Gemini, Groq, and OpenAI. 
 
 
@@ -49,12 +53,32 @@ _Note:_ `TAVILY_API_KEY` is a must for the API of search engine. Choice of LLM's
 
 **Build and start Docker Image**
 ```
+cd ./fluvio
 docker-compose up --build
 ```
 
+**Running the app**
 
-**Running the server**
+You can easily run the `run.sh` file that I have already scripted. Otherwise, you can type: 
 
+```
+python producer.py &
+python consumer.py
+```
+
+## Galleries
+
+### Producer
+
+The Producer automatically get latest trends from the Internet and use AI to summarize the website every 10 seconds. After the summarization is done, it makes an event to notify its customers.
+
+![](./asset/wipe_pub.png)
+
+### Customer
+
+The Customer retrieve a notification from its producer. In this experiment, I set it would randomly choose whether to "read" the news from the notification or not. 
+
+![](./asset/wipe_sub.png)
 
 
 ## Contact me via
