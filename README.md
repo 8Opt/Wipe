@@ -59,7 +59,7 @@ docker-compose up --build
 
 ## Contact me via
 
-+ **Github:** https://github.com/MinLee0210
++ **GitHub:** https://github.com/MinLee0210
 + **Gmail:** minh.leduc.0210@gmail.com
 + **LinkedIn:** www.linkedin.com/in/minhle007
 
