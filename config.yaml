@@ -1,4 +1,3 @@
- 
 summarizer:
   provider: gemini
   llm: 
@@ -11,3 +10,9 @@ search:
   include_answer: True                    # Include a list of query related images in the response
   include_images: False                   # Include a short answer to original query in the search results
   include_raw_content: False              # Include cleaned and parsed HTML of each site search results
+
+# For this project, I write it in config file like this. You might find other define their database configuration in `.env` file.
+wipe_db: 
+  host: localhost
+  port: 6379
+  decode_responses: True

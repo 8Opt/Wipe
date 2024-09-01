@@ -21,7 +21,7 @@ def setup_api_key():
     os.environ['GOOGLE_API_KEY'] = os.getenv('GEMINI_API_KEY')
 
 
-def get_config(path:str='./config.yaml') -> dict: 
+def get_config(path:str='./config.yaml') -> dict:
     """Get .yaml configuration file. 
 
     Args:
