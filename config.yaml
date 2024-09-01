@@ -16,3 +16,7 @@ wipe_db:
   host: localhost
   port: 6379
   decode_responses: True
+
+pubsub: 
+  topic: ai-trends
+  partition: 0
