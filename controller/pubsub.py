@@ -2,7 +2,7 @@
     Defines Pub/Sub logic for the AI news update feature.
 """
 from wipe.wipe_producer import WipeProducer
-from wipe.wipe_customer import WIPEConsumer
+from wipe.wipe_consumer import WIPEConsumer
 from wipe.wipe_redis import WIPEDB
 from wipe.helpers import read_yaml, str_to_json, json_to_str, set_logger
 

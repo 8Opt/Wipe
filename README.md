@@ -4,7 +4,7 @@
 
 ## Introduction
 
-**Tired of the tears caused by technical glitches?** We're here to **wipe** them away. Wip delivers real-time updates on the latest AI trends, ensuring you stay ahead of the curve.
+**Tired of Falling Behind in the Fast-Paced World of AI?** We're here to **wipe** them away. Wip delivers real-time updates on the latest AI trends, ensuring you stay ahead of the curve.
 
 ![](./asset/wipe_pipe.png)
 
@@ -70,13 +70,13 @@ python consumer.py
 
 ### Producer
 
-The Producer automatically get latest trends from the Internet and use AI to summarize the website every 10 seconds. After the summarization is done, it makes an event to notify its customers.
+The Producer automatically gets the latest trends from the Internet and uses AI to summarize the website every 10 seconds. After the summarization is done, it makes an event to notify its customers.
 
 ![](./asset/wipe_pub.png)
 
 ### Customer
 
-The Customer retrieve a notification from its producer. In this experiment, I set it would randomly choose whether to "read" the news from the notification or not. 
+The Customer retrieves a notification from its producer. In this experiment, I set it to randomly choose whether to "read" the news from the notification or not.
 
 ![](./asset/wipe_sub.png)
 
