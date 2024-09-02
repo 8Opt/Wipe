@@ -5,9 +5,6 @@ A simple Fluvio consumer that consumes records from a topic.
 from datetime import datetime
 from fluvio import Fluvio, Offset
 
-TOPIC_NAME = "quickstart-topic"
-PARTITION = 0
-
 class WIPEConsumer:
     """
     A class to consume records from a Fluvio topic.
