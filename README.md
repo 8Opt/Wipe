@@ -68,6 +68,9 @@ python consumer.py
 
 ## Galleries
 
++ Document: [substack.com](https://open.substack.com/pub/minhleduc/p/how-to-build-an-autonomous-news-generator?r=344eb1&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true)
++ Youtube: [link]()
+
 ### Producer
 
 The Producer automatically gets the latest trends from the Internet and uses AI to summarize the website every 10 seconds. After the summarization is done, it makes an event to notify its customers.
@@ -79,7 +82,6 @@ The Producer automatically gets the latest trends from the Internet and uses AI 
 The Customer retrieves a notification from its producer. In this experiment, I set it to randomly choose whether to "read" the news from the notification or not.
 
 ![](./asset/wipe_sub.png)
-
 
 ## Contact me via
 
