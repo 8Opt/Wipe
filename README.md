@@ -85,7 +85,7 @@ The Customer retrieves a notification from its producer. In this experiment, I s
 
 ## Contact me via
 
-+ **Github:** https://github.com/MinLee0210
++ **GitHub:** https://github.com/MinLee0210
 + **Gmail:** minh.leduc.0210@gmail.com
 + **LinkedIn:** www.linkedin.com/in/minhle007
 
